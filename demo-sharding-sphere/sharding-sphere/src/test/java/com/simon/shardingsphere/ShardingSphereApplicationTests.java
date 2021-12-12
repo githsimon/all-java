@@ -1,10 +1,10 @@
-package com.example.demoshardingsphere;
+package com.simon.shardingsphere;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoShardingSphereApplicationTests {
+class ShardingSphereApplicationTests {
 
     @Test
     void contextLoads() {
