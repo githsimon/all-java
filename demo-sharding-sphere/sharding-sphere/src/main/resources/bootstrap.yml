@@ -1,13 +1,14 @@
 server:
   port: 7010
-
 spring:
   application:
     name: @artifactId@
-  datasource:
-    druid:
-      db-type: com.alibaba.druid.pool.DruidDdataSource
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      username: root
-      password: 123456
-      url: jdbc:mysql://192.168.29.100:3306/db_simon_1?characterEncoding=utf8
+  profiles:
+    active: @profiles.active@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.29.100:8848
+      config:
+        server-addr: 192.168.29.100:8848
+        file-extension: yml
