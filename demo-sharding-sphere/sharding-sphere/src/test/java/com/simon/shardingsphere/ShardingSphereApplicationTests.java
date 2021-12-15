@@ -22,13 +22,14 @@ class ShardingSphereApplicationTests {
     private String name;
 
     @Test
-    void getName(){
+    void getName() {
         System.out.println("name=" + name);
     }
+
     @Test
     void getOrder1Date() {
-//        List<Map<String, Object>> result = orderService.listMaps();
-//         System.out.println("getOrder1Date size is " + result.size());
+        List<Map<String, Object>> result = orderService.listMaps();
+        System.out.println("getOrder1Date size is " + result.size());
     }
 
 }
