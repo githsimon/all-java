@@ -11,6 +11,7 @@
 
     <modules>
         <module>demo-sharding-sphere</module>
+        <module>demo-common</module>
     </modules>
 
 </project>

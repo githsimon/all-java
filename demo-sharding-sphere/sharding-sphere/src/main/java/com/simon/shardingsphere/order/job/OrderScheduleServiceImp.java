@@ -25,7 +25,7 @@ public class OrderScheduleServiceImp {
     @Scheduled(cron = "0/3 * * * * ?")
     private void insertOrder() {
         if (exeOnce) {
-            if((System.currentTimeMillis() - lastTime)/1000 < 60 * 60){
+            if ((System.currentTimeMillis() - lastTime) / 1000 < 60 * 60) {
                 return;
             }
         }
