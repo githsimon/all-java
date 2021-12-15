@@ -12,4 +12,5 @@ spring:
       config:
         #配置文件名有一套默认规则，具体见官网，自动拼接用的横线，不是下划线
         server-addr: 192.168.29.100:8848
+        namespace: @profiles.active@
         file-extension: yml
