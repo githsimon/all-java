@@ -22,7 +22,7 @@ public class OrderScheduleServiceImp {
 
     private boolean exeOnce = false;
 
-    @Scheduled(cron = "0/3 * * * * ?")
+//    @Scheduled(cron = "0/3 * * * * ?")
     private void insertOrder() {
         if (exeOnce) {
             if ((System.currentTimeMillis() - lastTime) / 1000 < 60 * 60) {

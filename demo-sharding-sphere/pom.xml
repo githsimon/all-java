@@ -23,6 +23,7 @@
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <druid.version>1.2.8</druid.version>
         <hutool.version>5.5.1</hutool.version>
+        <shardingsphere.version>5.0.0</shardingsphere.version>
     </properties>
 
     <modules>

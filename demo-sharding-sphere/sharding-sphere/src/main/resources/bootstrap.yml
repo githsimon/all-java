@@ -14,4 +14,6 @@ spring:
         server-addr: 192.168.29.100:8848
         namespace: ${spring.profiles.active}
         file-extension: yml
-        shared-configs: redis-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+        shared-configs:
+          - redis-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - sharding-sphere-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

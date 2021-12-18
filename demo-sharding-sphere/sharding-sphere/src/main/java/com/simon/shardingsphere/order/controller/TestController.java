@@ -26,6 +26,10 @@ public class TestController {
         return name;
     }
 
+    @GetMapping(value = "test")
+    public String test() {
+        return orderService.test();
+    }
     @GetMapping(value = "getOrders")
     public String getOrders() {
         return orderService.getOrders();

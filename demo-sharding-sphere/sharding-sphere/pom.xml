@@ -48,11 +48,18 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
         <!-- druid 连接池 -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
+        </dependency>-->
+        <!--shardingsphere不能用druid-spring-boot-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
         </dependency>
+
         <!--数据库-->
         <dependency>
             <groupId>mysql</groupId>
@@ -75,14 +82,16 @@
         </dependency>
         <!--缓存redis-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.simon</groupId>
             <artifactId>demo-common-cache</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!--shardingsphere相关依赖-->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+            <version>5.0.0</version>
         </dependency>
     </dependencies>
 

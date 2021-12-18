@@ -9,50 +9,55 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 
- * @TableName t_order_1
+ * 逻辑表
+ * @TableName t_order
  */
-@TableName(value ="t_order_1")
+@TableName(value ="t_order")
 @Data
 public class Order implements Serializable {
     /**
-     * 
+     *
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 单号
+     * 用户ID
+     */
+    private Long userId;
+
+    /**
+     *
      */
     private String businessNum;
 
     /**
-     * 订单类型
+     *
      */
     private String orderType;
 
     /**
-     * 备注
+     *
      */
     private String memo;
 
     /**
-     * 创建人
+     *
      */
     private Long createdBy;
 
     /**
-     * 创建时间
+     *
      */
     private Date createdDate;
 
     /**
-     * 修改人
+     *
      */
     private Long modifiedBy;
 
     /**
-     * 修改时间
+     *
      */
     private Date modifiedDate;
 

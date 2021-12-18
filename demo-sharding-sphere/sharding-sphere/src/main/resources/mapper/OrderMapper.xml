@@ -6,6 +6,7 @@
 
     <resultMap id="BaseResultMap" type="com.simon.shardingsphere.order.domain.Order">
             <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
             <result property="businessNum" column="business_num" jdbcType="VARCHAR"/>
             <result property="orderType" column="order_type" jdbcType="VARCHAR"/>
             <result property="memo" column="memo" jdbcType="VARCHAR"/>
@@ -16,8 +17,8 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,business_num,order_type,
-        memo,created_by,created_date,
-        modified_by,modified_date
+        id,user_id,business_num,
+        order_type,memo,created_by,
+        created_date,modified_by,modified_date
     </sql>
 </mapper>
