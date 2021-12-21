@@ -12,5 +12,5 @@ public interface OrderService extends IService<Order> {
 
     String getOrders();
 
-    String test();
+    String saveOrder();
 }

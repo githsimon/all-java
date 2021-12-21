@@ -9,10 +9,16 @@
             <result property="orderId" column="order_id" jdbcType="BIGINT"/>
             <result property="item" column="item" jdbcType="VARCHAR"/>
             <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="memo" column="memo" jdbcType="VARCHAR"/>
+            <result property="createdBy" column="created_by" jdbcType="BIGINT"/>
+            <result property="createdDate" column="created_date" jdbcType="TIMESTAMP"/>
+            <result property="modifiedBy" column="modified_by" jdbcType="BIGINT"/>
+            <result property="modifiedDate" column="modified_date" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,order_id,item,
-        user_id
+        user_id,memo,created_by,
+        created_date,modified_by,modified_date
     </sql>
 </mapper>

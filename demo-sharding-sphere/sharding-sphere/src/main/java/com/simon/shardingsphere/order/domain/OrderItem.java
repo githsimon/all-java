@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.Date;
 import lombok.Data;
 
 /**
@@ -17,7 +18,7 @@ public class OrderItem implements Serializable {
     /**
      * 
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -34,6 +35,31 @@ public class OrderItem implements Serializable {
      * 
      */
     private Long userId;
+
+    /**
+     * 
+     */
+    private String memo;
+
+    /**
+     * 
+     */
+    private Long createdBy;
+
+    /**
+     * 
+     */
+    private Date createdDate;
+
+    /**
+     * 
+     */
+    private Long modifiedBy;
+
+    /**
+     * 
+     */
+    private Date modifiedDate;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

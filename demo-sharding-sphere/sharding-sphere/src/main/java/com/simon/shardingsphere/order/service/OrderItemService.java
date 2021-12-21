@@ -4,9 +4,9 @@ import com.simon.shardingsphere.order.domain.OrderItem;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
-* @author simon
-* @description 针对表【t_order_item0】的数据库操作Service
-* @createDate 2021-12-18 16:01:17
+* @author 大神
+* @description 针对表【t_order_item_0】的数据库操作Service
+* @createDate 2021-12-18 19:32:02
 */
 public interface OrderItemService extends IService<OrderItem> {
 

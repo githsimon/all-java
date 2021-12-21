@@ -6,17 +6,18 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.simon.demo.common.cache.RedisUtil;
 import com.simon.shardingsphere.order.domain.Order;
-import com.simon.shardingsphere.order.service.OrderService;
+import com.simon.shardingsphere.order.domain.OrderItem;
+import com.simon.shardingsphere.order.domain.User;
 import com.simon.shardingsphere.order.mapper.OrderMapper;
+import com.simon.shardingsphere.order.service.OrderItemService;
+import com.simon.shardingsphere.order.service.OrderService;
+import com.simon.shardingsphere.order.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
 * @author simon
@@ -31,22 +32,45 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>
     @Autowired
     RedisUtil redisUtil;
 
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    OrderItemService orderItemService;
+
     @Override
-    public String test() {
+    public String saveOrder() {
+        Order order = new Order();
+        OrderItem orderItem = new OrderItem();
+        //随机查询一个用户
+        List<User> users = userService.getBaseMapper().selectByMap(null);
+        if(CollUtil.isNotEmpty(users)){
+            int index = (int)(Math.random() * users.size());
+            User user = users.get(index);
+            order.setUserId(user.getId());
+        }else{
+            return "Fail";
+        }
         QueryWrapper<Order> wrapper = new QueryWrapper<>();
         wrapper.orderByDesc("id");
-        Order order = new Order();
-        order.setId(1L);
-        order.setUserId(1L);
         order.setBusinessNum("REV" + System.currentTimeMillis());
         order.setOrderType("REV");
         order.setCreatedBy(1L);
         order.setCreatedDate(new Date());
         order.setModifiedBy(2L);
         order.setModifiedDate(new Date());
-        int insert = this.baseMapper.insert(order);
-        log.info("info46 insert is {}",insert);
-        return String.valueOf(insert);
+        this.save(order);
+
+        orderItem.setOrderId(order.getId());
+        orderItem.setUserId(order.getUserId());
+        orderItem.setCreatedBy(1L);
+        orderItem.setCreatedDate(new Date());
+        orderItem.setModifiedBy(1L);
+        orderItem.setModifiedDate(new Date());
+        orderItemService.save(orderItem);
+
+        log.info("info46 insert success");
+        return "OK";
     }
 
     @Override

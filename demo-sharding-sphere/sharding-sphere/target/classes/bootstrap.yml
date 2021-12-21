@@ -1,0 +1,19 @@
+server:
+  port: 7010
+spring:
+  application:
+    name: sharding-sphere
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.29.100:8848
+      config:
+        #配置文件名有一套默认规则，具体见官网，自动拼接用的横线，不是下划线
+        server-addr: 192.168.29.100:8848
+        namespace: ${spring.profiles.active}
+        file-extension: yml
+        shared-configs:
+          - redis-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - sharding-sphere-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
