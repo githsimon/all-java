@@ -7,7 +7,7 @@ import com.simon.shardingsphere.order.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 /**
-* @author 大神
+* @author simon
 * @description 针对表【t_user】的数据库操作Service实现
 * @createDate 2021-12-18 19:35:21
 */
